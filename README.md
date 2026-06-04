@@ -1,7 +1,7 @@
 # Splunk
 Esta seção introduz a arquitetura conceitual do Splunk como uma ferramenta de SIEM (*Security Information and Event Management*), detalhando a anatomia do SPL (*Search Processing Language*) para filtragem de logs, a precedência de operadores lógicos e as melhores práticas de otimização para analistas de Blue Team.
 
-### Conceitos Práticos e Comandos Novidades:
+### Conceitos iniciais:
 
 * **Pipes (`|`):** Conectores que funcionam como uma linha de produção, enviando o resultado de uma busca ou comando diretamente como entrada para o próximo.
 * **Search Terms (Termos de Busca):** Palavras-chave, campos ou expressões booleanas usadas no início da query para filtrar os dados brutos (ex: `index=security`).
@@ -24,7 +24,7 @@ Esta seção introduz a arquitetura conceitual do Splunk como uma ferramenta de 
 * **Lookups:** Cruzam e enriquecem os dados de logs com tabelas externas (ex: listas de IPs maliciosos).
 * **Alertas e Dashboards:** Automações visuais e notificações baseadas em queries salvas para monitoramento contínuo.
 
-> 💡 **Dicas de Otimização (Blue Team):**
+> 💡 **Dicas de Otimização:**
 > * Sempre declare o escopo temporal e os campos `index` e `sourcetype` no início da query.
 > * Filtre o máximo de dados possível *antes* do primeiro pipe (`|`) para economizar memória do servidor.
 
