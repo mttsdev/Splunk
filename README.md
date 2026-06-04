@@ -52,15 +52,15 @@ Cada consulta iniciada gera uma tarefa interna no servidor chamada **Job**. O ge
 * **Patterns:** Agrupa e identifica padrões repetitivos nos dados para acelerar diagnósticos visuais.
 * **Statistics & Visualization:** Exibe tabelas estruturadas e elementos gráficos. Só é populada se a query utilizar **Comandos Transformadores** (comandos que convertem logs brutos em tabelas de dados agregados).
 
-### 💡 Exemplos Práticos:
+### Exemplos Práticos:
 * **Gerenciamento de Job (Segundo Plano):** Ao rodar uma busca massiva de *Threat Hunting* para rastrear um IP suspeito nos últimos 90 dias, o analista pode clicar em *Job -> Send to Background*. A busca continua processando enquanto ele navega por outras áreas.
 * **Compartilhamento e Exportação:** Após localizar os logs exatos de uma invasão, clicar em *Job -> Share* mantém a tarefa ativa na memória por **7 dias** (o padrão de buscas normais é expirar após algumas horas).
 
 ---
 
-## 📑 4. Search Processing Language (SPL) e Operadores
+## 4. Search Processing Language (SPL) e Operadores
 
-### 🔹 O que faz:
+### O que faz:
 O SPL é a linguagem proprietária utilizada para refinar milhões de linhas de texto confuso em respostas cirúrgicas. A filtragem utiliza *pipes* (`|`) que funcionam como uma linha de produção: o resultado de um estágio alimenta o próximo.
 
 * **Caracteres Curinga:** O asterisco (`*`) faz buscas parciais (ex: `fail*` retornará *failed*, *failure*, *failing*). A busca de termos comuns não diferencia maiúsculas de minúsculas.
@@ -88,7 +88,7 @@ index=network sourcetype=cisco-wsa_squid usage=Violation | stats count(usage) as
 4. **Argumento:** `usage` — Define a variável ou campo específico avaliado pela função.
 5. **Cláusula:** `as Visits by cs_username` — Comanda a renomeação da coluna de saída e determina o agrupamento/divisão analítica dos dados.
 
-### 🛡️ Exemplos de Queries para Investigação
+### Exemplos de Queries para Investigação
 
 #### 1. Filtragem com Precedência Lógica
 
@@ -111,9 +111,9 @@ index=firewall action=blocked (reason="bad password" OR reason="invalid user")
 
 ---
 
-## 🗃️ 5. Objetos de Conhecimento (Knowledge Objects)
+## 5. Objetos de Conhecimento (Knowledge Objects)
 
-### 🔹 O que faz:
+### O que faz:
 Logs brutos costumam ser confusos, massivos e de difícil leitura. Os Objetos de Conhecimento servem para enriquecer, normalizar e catalogar os dados brutos, permitindo que informações puramente técnicas sejam traduzidas em inteligência de segurança inteligível e reutilizável por todo o time do SOC.
 
 | Categoria | Tipos de Objetos | Função Prática & Exemplos |
@@ -126,12 +126,12 @@ Logs brutos costumam ser confusos, massivos e de difícil leitura. Os Objetos de
 
 ---
 
-## 📊 6. Relatórios (Reports) e Dashboards
+## 6. Relatórios (Reports) e Dashboards
 
-### 🔹 O que faz:
+### O que faz:
 Transforma o resultado de buscas técnicas e comandos transformadores em relatórios recorrentes ou painéis visuais (Dashboards) atualizados em tempo real, ideais para o monitoramento contínuo em telas de gerenciamento do SOC.
 
-### 🗓️ Boas Práticas de Nomeação para Relatórios
+### Boas Práticas de Nomeação para Relatórios
 
 Para manter ambientes corporativos organizados, escaláveis e auditáveis, adote uma convenção de nomenclatura padronizada baseada na estrutura:
 
@@ -145,10 +145,18 @@ Para manter ambientes corporativos organizados, escaláveis e auditáveis, adote
 - **Report:** O tipo de Objeto de Conhecimento que foi gerado.
 - **FailedSshAttempts:** Descrição direta do conteúdo (Tentativas falhas de SSH).
 
-### 🛠️ Construção de Dashboards
+### Construção de Dashboards
 
 Um Dashboard é uma coleção de painéis analíticos alimentados por buscas salvas ou relatórios rápidos (gerados diretamente a partir de campos da barra lateral, como a função *Top Values*).
 
 **Customização Visual:** A interface interativa permite arrastar e soltar painéis, alterar modos de visualização (gráficos de pizza, linhas, tabelas ou mapas geográficos) e aplicar o Tema Escuro (Dark Theme).
 
 **Edição de Código (XML):** No modo de edição avançado, os analistas podem acessar a guia *Source* para manipular diretamente a estrutura XML do painel, permitindo customizações avançadas de comportamento, cores dinâmicas de alertas e inputs de controle de tempo customizados.
+
+---
+
+## 7. Boas práticas no Splunk
+
+* Letras Minúsculas: Embora o Splunk aceite comandos em maiúsculas, a convenção padrão e recomendada é digitar comandos e funções em minúsculas.
+* Filtros de Tempo: Sempre defina o período antes de rodar a busca para economizar processamento.
+* Filtros à Esquerda: Quanto mais filtros você colocar antes do primeiro Pipe (|), mais rápido será o resultado, pois o Splunk terá menos dados para "carregar na memória".
