@@ -2,7 +2,8 @@
 
 Repositório criado para mostrar o que é o Splunk e como utilizá-lo.
 
-[O que é o Splunk?](#o-que-é-o-splunk-e-fundamentos-básicos)
+[O que é o Splunk?](#o-que-é-o-splunk-e-fundamentos-básicos)<br>
+[Queries?](#queries)
 <br><br><br><br>
 
 <a id="o-que-é-o-splunk-e-fundamentos-básicos"></a>
@@ -168,3 +169,6 @@ Um Dashboard é uma coleção de painéis analíticos alimentados por buscas sal
 * Letras Minúsculas: Embora o Splunk aceite comandos em maiúsculas, a convenção padrão e recomendada é digitar comandos e funções em minúsculas.
 * Filtros de Tempo: Sempre defina o período antes de rodar a busca para economizar processamento.
 * Filtros à Esquerda: Quanto mais filtros você colocar antes do primeiro Pipe (|), mais rápido será o resultado, pois o Splunk terá menos dados para "carregar na memória".
+<br>
+<a id="queries"></a>
+## Queries
