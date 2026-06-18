@@ -1,6 +1,13 @@
 # Splunk
 
-Este repositório consolida o ecossistema do Splunk Enterprise e Splunk Cloud, detalhando desde a navegação na interface inicial até a construção de consultas complexas em SPL (*Search Processing Language*).
+Repositório criado para mostrar o que é o Splunk e como utilizá-lo.
+
+[O que é o Splunk?](#o-que-é-o-splunk-e-fundamentos-básicos)
+
+<a id="o-que-é-o-splunk-e-fundamentos-básicos"></a>
+O que é o Splunk?
+
+Esta parte consolida o ecossistema do Splunk Enterprise e Splunk Cloud, detalhando desde a navegação na interface inicial até a construção de consultas complexas em SPL (*Search Processing Language*).
 
 ---
 
